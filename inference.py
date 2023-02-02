@@ -54,7 +54,7 @@ class FurnitureTrfInterface:
             threshold (float, optional): the threshold value used. Defaults to 0.5.
 
         Returns:
-            dict: _description_
+            dict: includes thresholded output and confidence values
         """
         self.model.eval()
 
