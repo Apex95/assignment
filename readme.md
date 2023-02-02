@@ -4,6 +4,10 @@ This repository presents a possible solution for the given assignment: *extracti
 on a pretrained **DistilBert** (uncased) as a **backbone** with 2 inserted FC layers and a `[CLS]`-based **text classification** training objective. To me, this made more sense than a pure **NER**-oriented approach and I will try to explain why.
 
 
+I've got this as a Colab demo!
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/14VOdhVGyv9AxmcBoS2EZ43f0zygESDUv?usp=sharing]
+
+
 ## Insight and Observations
 
 The following observations are used to justify some of the design decisions in my solution:
@@ -30,7 +34,7 @@ while also matching the HTML standards
 
 ### Conclusions
 
-By leveraging **HTML**-based information from each website's sourcecode we notice that this is not necessarily a **NER** problem. There's a fairly good chance
+By leveraging **HTML**-based information from each website's sourcecode it is easy to notice that this is not necessarily a **NER** problem. There's a fairly good chance
 that the data is **already segmented** (or delimited) through different **tags**. 
 
 Presumably, there's a small chance of encountering a page such as:
@@ -59,13 +63,16 @@ A **DistilBERT** model make sense in this scenario because:
 ### FAQ
 
 > Why not a more recent model such as DistilRoBERTa?
+
 I couldn't find a checkpoint for the uncased version of DistilRoBERTA; running the cased version would probably require a larger dataset.
 
 > Why a distilled model?
+
 The task at hand is relatively simple: doing something like `product_name.contains("bed")` will yield some decent results for beds. However,
 the number of websites is large. At the same time, DistilBERT is said to be "40% smaller than the original BERT-base model, 60% faster than it, and retaining 97% of its functionality", which is adequate for a higher-throughput approach.
 
 > What if a products list / category is given and it's not using HTML headings?
+
 In the current implementation, the crawler supports a BFS-like indexing; if the assumption that each product has its own page holds
 then the crawler will find a link to the product's page which will be properly formatted (i.e., have the necessary HTML headings).
 
@@ -75,13 +82,14 @@ then the crawler will find a link to the product's page which will be properly f
 The web crawler (*crawler.py*) relies on the **requests** and **BeautifulSoup4** modules for getting the source code and parsing it.
 It implements the following functionalities:
 1. basic web **page level crawling** and extraction of **tags of interest** (e.g., `<h1>`, `<h2>`, ...)
-2. `BFS-based website crawling` by analyzing links within the sourcecode; **depth** and **maximum number of pages** are configurable parameters
+2. **BFS-based website crawling** by analyzing links within the sourcecode; **depth** and **maximum number of pages** are configurable parameters
 3. **relative** -> **absolute** URL conversion by relying on **initial hostname**
 4.  modified / realistic **user agent** to avoid some possible bot filters
 
 ### FAQ
 
 > Why not Selenium?
+
 Selenium (w/ headless Chrome Driver) was my first choice since it also covered JavaScript-based actions but the crawling process was too slow (despite trying to improve it). 
 This made me reconsider the necessity of taking JavaScript into account for such websites.
 
@@ -96,11 +104,11 @@ from the same field (furniture, household items). At the same time, I crawled a 
 ### Employed Datasets
 
 The following datasets were downloade, preprocessed and adapted and used for **training** and **validation**:
-1. IKEA SA Furniture [^](https://www.kaggle.com/datasets/ahmedkallam/ikea-sa-furniture-web-scraping)
-2. IKEA US Products Dataset [^](https://www.kaggle.com/datasets/crawlfeeds/ikea-us-products-dataset)
-3. SOUQ Office Furniture Dataset [^](https://www.kaggle.com/datasets/marwahmm/souqcom-dataset)
-4. Furniture Images Dataset [^](https://www.kaggle.com/datasets/lasaljaywardena/furniture-images-dataset)
-5. Flipkart Furniture Dataset [^](https://www.kaggle.com/datasets/neerajjain6197/flipkart-furniture-dataset)
+1. [IKEA SA Furniture](https://www.kaggle.com/datasets/ahmedkallam/ikea-sa-furniture-web-scraping)
+2. [IKEA US Products Dataset](https://www.kaggle.com/datasets/crawlfeeds/ikea-us-products-dataset)
+3. [SOUQ Office Furniture Dataset](https://www.kaggle.com/datasets/marwahmm/souqcom-dataset)
+4. [Furniture Images Dataset](https://www.kaggle.com/datasets/lasaljaywardena/furniture-images-dataset)
+5. [Flipkart Furniture Dataset](https://www.kaggle.com/datasets/neerajjain6197/flipkart-furniture-dataset)
 6. Random English Wikipedia Articles (crawled by me)
 
 ### Details
@@ -270,12 +278,14 @@ do not represent products); can be used to evaluate how the model performs
 ## How to run
 
 Simply install the required dependencies via pip3:
+
 ```pip3 install -r requirements.txt```
 
 Download the last checkpoint [4.168538576697756.dat](https://drive.google.com/uc?id=1g7I0Q1L0DxZY-iGETFsa-9daA_Ds6aCC&export=download) and place it in the `checkpoints/` directory.
 
 
 Then:
+
 ```python3 run.py```
 
 
