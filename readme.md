@@ -5,7 +5,7 @@ on a pretrained **DistilBert** (uncased) as a **backbone** with 2 inserted FC la
 
 
 I've got this as a Colab demo!
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/14VOdhVGyv9AxmcBoS2EZ43f0zygESDUv?usp=sharing]
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/14VOdhVGyv9AxmcBoS2EZ43f0zygESDUv?usp=sharing)
 
 
 ## Insight and Observations
