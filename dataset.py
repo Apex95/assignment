@@ -60,7 +60,7 @@ class TextDataset(Dataset):
         return text, label
 
     def random_delete(self, text: str, label: int) -> Tuple[str, int]:
-        """_summary_
+        """ Randomly deletes elements from a sequence
 
         Args:
             text (str): the input text
@@ -115,7 +115,7 @@ class TextDataset(Dataset):
 
 
 def load_dataset(json_path: str, tokenizer: Any, max_len: int, split_percent: float = 0.8) -> Tuple[TextDataset, TextDataset, float]:
-    """Loads a JSON dataset a splitted version (training/validation)
+    """Loads a JSON dataset and returns a splitted version (training/validation)
 
     Args:
         json_path (str): path to the JSON-formatted datasets
