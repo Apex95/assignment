@@ -106,7 +106,7 @@ from the same field (furniture, household items). At the same time, I crawled a 
 
 ### Employed Datasets
 
-The following datasets were downloade, preprocessed and adapted and used for **training** and **validation**:
+The following datasets were downloaded, preprocessed, adapted and used for **training** and **validation**:
 1. [IKEA SA Furniture](https://www.kaggle.com/datasets/ahmedkallam/ikea-sa-furniture-web-scraping)
 2. [IKEA US Products Dataset](https://www.kaggle.com/datasets/crawlfeeds/ikea-us-products-dataset)
 3. [SOUQ Office Furniture Dataset](https://www.kaggle.com/datasets/marwahmm/souqcom-dataset)
