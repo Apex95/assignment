@@ -125,7 +125,7 @@ There should be about **281,072** annotated sequences, divided as:
 - **training samples:** 234,463
 - **validation samples:** 46,609
 
-The datasets are stored in a **JSON** format. For example, below are representations for a **positive sample** followed by a **negative sample**:
+The datasets are stored in a **JSON** format. For example, below are representations for 2 **positive samples** followed by a **negative sample**:
 ```json
 {"Office chair with armrests": true, "Box - black 9 ¾x13 ¾x9 ¾": true}
 {"Russian at Amherst": false}
