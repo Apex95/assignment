@@ -146,6 +146,8 @@ on specific words
 
 ## Transformer Model
 
+![Current Model Diagram](imgs/diagram.png?raw=true "Current architecture with pretrained DistilBert")
+
 The model relies on Huggingface's pretrained `DistilBertModel` & `DistilBertTokenizer` (`distilbert-base-uncased`) with **frozen weights**.
 The last hidden state of DistilBert is shaped as `[batch_size, seq_len, hidden_size]`, but only the first element is of interest. 
 
