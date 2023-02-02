@@ -4,7 +4,6 @@ This repository presents a possible solution for the given assignment: *extracti
 on a pretrained **DistilBert** (uncased) as a **backbone** with 2 inserted FC layers and a `[CLS]`-based **text classification** training objective. To me, this made more sense than a pure **NER**-oriented approach and I will try to explain why.
 
 
-I've got this as a Colab demo!
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/14VOdhVGyv9AxmcBoS2EZ43f0zygESDUv?usp=sharing)
 
 
